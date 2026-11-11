@@ -24,7 +24,7 @@ pip install paho-mqtt
 
 1. Clone the Project (ssh recommended):
 ```bash
-git@github.com:LexaTheCreativity/IKT520-MA02-MQTT.git
+git clone git@github.com:<githubusername>/IKT520-MA02-MQTT.git
 ```
 
 2. Change branch from main:
