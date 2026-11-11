@@ -12,9 +12,7 @@ def on_message(client, userdata, message):
 # Define the on_connect callback (runs when the CONNACK arrives)
 def on_connect(client, userdata, flags, reason_code, properties):
     print("CONNACK received...")
-    print(f"    session_present = {flags.session_present}")
-    print(f"    reason_code     = {reason_code} (value={reason_code.value})")
-    print(f"    properties      = {properties}")
+    print("Result from connect: {}".format(mqtt.connack_string(reason_code)))
 
 
 # Check SUBACK reply sent from Broker
