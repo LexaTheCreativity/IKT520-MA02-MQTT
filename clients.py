@@ -1,7 +1,8 @@
 import time
 import paho.mqtt.client as mqtt
 
-BROKER = "test.mosquitto.org"
+#BROKER = "test.mosquitto.org"
+BROKER = "broker.hivemq.com"
 PORT = 1883
 KEEPALIVE = 60
 
@@ -29,14 +30,16 @@ def on_publish(client, userdata, msg_id, reason_code, properties):
     print(f"Broker received message with msg_id={msg_id} ")
 
 # Q1: create the two clients
-def create_clients():
+def create_clients(clean_session = True):
     publisher = mqtt.Client(
         callback_api_version=mqtt.CallbackAPIVersion.VERSION2,
-        client_id="IKT520_publisher"
+        client_id="IKT520_publisher",
+        clean_session = clean_session
     )
     subscriber = mqtt.Client(
         callback_api_version=mqtt.CallbackAPIVersion.VERSION2,
-        client_id="IKT520_subscriber"
+        client_id="IKT520_subscriber",
+        clean_session = clean_session
     )
     return publisher, subscriber
 
@@ -81,3 +84,4 @@ def publish_message(publisher, topic, msg, qos):
     time.sleep(2)
     publisher.disconnect()
     publisher.loop_stop()
+
