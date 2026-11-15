@@ -37,6 +37,7 @@ git checkout -b <BRANCH_NAME>
 git push origin <BRANCH_NAME>
 ```
 
+4. Happy coding!!!
 
 ## How to run
 
